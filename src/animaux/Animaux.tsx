@@ -5,9 +5,10 @@ import Navbar from '../components/Navbar/Navbar';
 import { apiCall } from '../api/apiCall';
 import storeZooId from '../api/storeZooId';
 import AnimalCell from './AnimalCell';
+import { useNavigate } from 'react-router-dom';
 
 function Animaux(){
-
+  const navigate = useNavigate();
   const [animaux,setAnimaux] = useState<Animal[]>([])
   const [isLoading,setIsLoading] = useState<boolean>(true)
 
@@ -25,7 +26,10 @@ function Animaux(){
         fetchAnimals();
       }, []);
 
-
+  function handleClick(animal : Animal){
+    navigate(`/animal/${animal._id}`,{ state: { animal } })
+  }
+      
   if (isLoading) {
     return <p>Loading zoos...</p>;
   }
@@ -37,7 +41,7 @@ function Animaux(){
         <p className="text-gray-500 text-center mt-4">No animal available.</p>
       ) : (
         animaux.map((animal) => (
-          <AnimalCell key={animal._id} animal={animal} />
+          <AnimalCell key={animal._id} animal={animal} onClick={() => handleClick(animal)} />
         ))
       )}
     </div>

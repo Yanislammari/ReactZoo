@@ -9,6 +9,7 @@ import ZooExplore from './espaces/Espaces';
 import Billets from './billets/Billets';
 import Animaux from './animaux/Animaux';
 import Zoos from './zoos/Zoos';
+import AnimalDetail from './animalDetail/animalDetail';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -22,6 +23,7 @@ root.render(
         <Route path="/espaces" element={<ZooExplore/>}/>
         <Route path="/billets" element={<Billets/>}/>
         <Route path="/animaux" element={<Animaux/>}/>
+        <Route path="/animal/:id" element={<AnimalDetail/>}/>
         <Route path="/zoos" element={<Zoos/>}/>
         <Route path='*' element={<Navigate to='/espaces'/>}/>
       </Routes>
