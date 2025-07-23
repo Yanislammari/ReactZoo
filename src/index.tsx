@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import RegisterForm from './register/RegisterForm';
 import ZooExplore from './zoo_explore/Zoo_explore';
+import Billets from './billets/Billets';
+import Animaux from './animaux/Animaux';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,8 +18,10 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/register" element={<RegisterForm/>}/>
-        <Route path="/zoo_explore" element={<ZooExplore/>}/>
-        <Route path='*' element={<Navigate to='/'/>}/>
+        <Route path="/espaces" element={<ZooExplore/>}/>
+        <Route path="/billets" element={<Billets/>}/>
+        <Route path="/animaux" element={<Animaux/>}/>
+        <Route path='*' element={<Navigate to='/espaces'/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

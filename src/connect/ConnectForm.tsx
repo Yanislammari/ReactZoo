@@ -8,7 +8,7 @@ import TokenStore from '../api/tokenStore';
 
 function ConnectForm(){
   const navigate = useNavigate();
-  const  [login, setLogin] = useState<string>('customer3');
+  const  [login, setLogin] = useState<string>('customer');
   const  [password, setPassword] = useState<string>('customer');
 
   const handleInputChange = (state : React.Dispatch<React.SetStateAction<string>>) => {
@@ -31,7 +31,7 @@ function ConnectForm(){
       if (response?.ok) {
         const data = await response.json();
         TokenStore.setToken(data.token);
-        navigate('/zoo_explore');
+        navigate('/espaces');
       } else {
         toast.error("Failed to connect,try again");
       } 
