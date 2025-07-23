@@ -30,8 +30,8 @@ function ConnectForm(){
 
       if (response?.ok) {
         const data = await response.json();
-        TokenStore.setToken(data.token);
-        navigate('/espaces');
+        TokenStore.setToken(data.session);
+        navigate('/zoos');
       } else {
         toast.error("Failed to connect,try again");
       } 

@@ -1,11 +1,11 @@
-import './ZooCell.css'
+import './EspaceCell.css'
 import { Habitat } from "../models/space";
 
-type ZooCellProps = {
+type EspaceCellProps = {
   habitat: Habitat;
 };
 
-function ZooCell(props : ZooCellProps) {
+function EspaceCell(props : EspaceCellProps) {
   return (
     <div>
       <h2>{props.habitat.name}</h2>
@@ -14,4 +14,4 @@ function ZooCell(props : ZooCellProps) {
   );
 }
 
-export default ZooCell;
+export default EspaceCell;

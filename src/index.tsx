@@ -5,9 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import RegisterForm from './register/RegisterForm';
-import ZooExplore from './zoo_explore/Zoo_explore';
+import ZooExplore from './espaces/Espaces';
 import Billets from './billets/Billets';
 import Animaux from './animaux/Animaux';
+import Zoos from './zoos/Zoos';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -21,6 +22,7 @@ root.render(
         <Route path="/espaces" element={<ZooExplore/>}/>
         <Route path="/billets" element={<Billets/>}/>
         <Route path="/animaux" element={<Animaux/>}/>
+        <Route path="/zoos" element={<Zoos/>}/>
         <Route path='*' element={<Navigate to='/espaces'/>}/>
       </Routes>
     </BrowserRouter>

@@ -1,6 +1,6 @@
 import './App.css';
 import ConnectForm from './connect/ConnectForm';
-import ZooExplore from './zoo_explore/Zoo_explore';
+import ZooExplore from './espaces/Espaces';
 
 function App() {
   return (

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import "./Zoo_explore.css"
+import "./Espaces.css"
 import { Habitat } from "../models/space";
-import ZooCell from "./ZooCell";
+import ZooCell from "./EspaceCell";
 import Navbar from "../components/Navbar/Navbar";
 
-function ZooExplore(){
+function Espaces(){
 
   const [spaces,setSpaces] = useState<Habitat[]>([])
   return (
@@ -21,4 +21,4 @@ function ZooExplore(){
   );
 }
 
-export default ZooExplore;
+export default Espaces;

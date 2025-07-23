@@ -5,14 +5,13 @@ export async function apiCall(route : string, verb: string,body : any):Promise<R
     method: verb,
     headers: {
       'Content-Type': 'application/json',
-      'authorization': 'Bearer ' + TokenStore.getToken(),
+      'authorization': `Bearer ${TokenStore.getToken()}`,
     },
   };
 
   if (body !== undefined && body !== null) {
     options.body = JSON.stringify(body);
   }
-  console.log(body);
   try {
     const response = await fetch("http://localhost:8080/" + route, options);
     return response;
