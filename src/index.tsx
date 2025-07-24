@@ -6,10 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import RegisterForm from './register/RegisterForm';
 import ZooExplore from './espaces/Espaces';
-import Billets from './billets/Billets';
+import Passes from './passes/Passes';
 import Animaux from './animaux/Animaux';
 import Zoos from './zoos/Zoos';
 import AnimalDetail from './animalDetail/animalDetail';
+import Buy from './buy/Buy';
+import Billets from './billets/Billets';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -21,6 +23,9 @@ root.render(
         <Route path="/" element={<App />} />
         <Route path="/register" element={<RegisterForm/>}/>
         <Route path="/espaces" element={<ZooExplore/>}/>
+        <Route path="/espaces/:id" element={<Animaux/>}/>
+        <Route path="/passes" element={<Passes/>}/>
+        <Route path="/buy/:id" element={<Buy/>}/>
         <Route path="/billets" element={<Billets/>}/>
         <Route path="/animaux" element={<Animaux/>}/>
         <Route path="/animal/:id" element={<AnimalDetail/>}/>

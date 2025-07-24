@@ -5,16 +5,27 @@ import Navbar from '../components/Navbar/Navbar';
 import { apiCall } from '../api/apiCall';
 import storeZooId from '../api/storeZooId';
 import AnimalCell from './AnimalCell';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-function Animaux(){
+interface AnimauxProps {
+  showNavbar?: boolean;
+  apiEndpoint?: string;
+}
+
+function Animaux({showNavbar = true,apiEndpoint = `zoo/${storeZooId.getZooId()}/animal`}: AnimauxProps) {
   const navigate = useNavigate();
   const [animaux,setAnimaux] = useState<Animal[]>([])
   const [isLoading,setIsLoading] = useState<boolean>(true)
 
+  const { id } = useParams<{ id: string }>();
+  var endpoint = apiEndpoint;
+  console.log("ID from params:", id);
+  if(id){
+    endpoint =`zoo/${storeZooId.getZooId()}/animal?space_id=${id}`;
+  }
   useEffect(() => {
         const fetchAnimals = async () => {
-          const response = await apiCall(`zoo/${storeZooId.getZooId()}/animal`,'GET',null)
+          const response = await apiCall(endpoint,'GET',null)
           const animalsApi = await response?.json()
           if(animalsApi != null){
             const animalsTransform = animalsApi as Animal[];
@@ -44,7 +55,7 @@ function Animaux(){
         minHeight: "100vh",
       }}
     >
-      <Navbar />
+      {showNavbar && <Navbar />}
       {animaux.length === 0 ? (
         <p className="text-gray-500 text-center mt-4">No animal available.</p>
       ) : (

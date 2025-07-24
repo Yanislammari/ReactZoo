@@ -40,7 +40,13 @@ const Navbar: React.FC = () => {
   }, [isOpen]);
 
   const handleNavigate = (path: string) => {
-    navigate(path);
+    if(path == '/animaux'){
+      navigate(path);
+      window.location.reload();
+    }
+    else{
+      navigate(path);
+    }
     setIsOpen(false);
   };
 

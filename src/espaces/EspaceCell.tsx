@@ -1,13 +1,15 @@
 import './EspaceCell.css';
 import { Habitat } from "../models/space";
+import { useNavigate } from 'react-router-dom';
 
 type EspaceCellProps = {
   habitat: Habitat;
 };
 
 function EspaceCell({ habitat }: EspaceCellProps) {
+  const navigate = useNavigate();
   return (
-    <div className="espace-card">
+    <div className="espace-card" onClick={()=>navigate('/espaces/' + habitat._id)}>
       <h2 className="espace-title">{habitat.name}</h2>
       <p className="espace-description">{habitat.description}</p>
       <p className="espace-hours">
