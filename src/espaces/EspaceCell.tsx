@@ -7,9 +7,17 @@ type EspaceCellProps = {
 };
 
 function EspaceCell({ habitat }: EspaceCellProps) {
+   const handleClick = () => {
+    if (!habitat.disabled) {
+      navigate('/espaces/' + habitat._id);
+    }
+  };
   const navigate = useNavigate();
   return (
-    <div className="espace-card" onClick={()=>navigate('/espaces/' + habitat._id)}>
+    <div
+      className={`espace-card ${habitat.disabled ? 'espace-disabled' : ''}`}
+      onClick={handleClick}
+    >
       <h2 className="espace-title">{habitat.name}</h2>
       <p className="espace-description">{habitat.description}</p>
       <p className="espace-hours">

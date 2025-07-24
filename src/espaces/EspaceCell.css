@@ -41,3 +41,9 @@
   transform: translateY(-4px);
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
+
+.espace-disabled {
+  background-color: #f8d7da; /* light red */
+  cursor: not-allowed;
+  opacity: 0.8;
+}
