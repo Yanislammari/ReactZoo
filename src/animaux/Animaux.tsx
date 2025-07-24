@@ -35,7 +35,15 @@ function Animaux(){
   }
 
   return (
-    <div style={{ paddingTop: "70px" }}>
+    <div
+      style={{
+        paddingTop: "70px",
+        backgroundImage: "url('/assets/jungle.jpeg')", // ensure image is inside public/assets/
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        minHeight: "100vh",
+      }}
+    >
       <Navbar />
       {animaux.length === 0 ? (
         <p className="text-gray-500 text-center mt-4">No animal available.</p>
