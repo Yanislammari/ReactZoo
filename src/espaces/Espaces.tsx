@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import "./Espaces.css"
 import { Habitat } from "../models/space";
-import ZooCell from "./EspaceCell";
 import Navbar from "../components/Navbar/Navbar";
 import { apiCall } from "../api/apiCall";
 import storeZooId from "../api/storeZooId";
+import { useNavigate } from "react-router-dom";
+import EspaceCell from "./EspaceCell";
 
 function Espaces(){
-
+  const navigate = useNavigate()
   const [spaces,setSpaces] = useState<Habitat[]>([])
   const [isLoading,setIsLoading] = useState<boolean>(true)
 
@@ -36,7 +37,7 @@ function Espaces(){
         <p className="text-gray-500 text-center mt-4">No spaces available.</p>
       ) : (
         spaces.map((habitat) => (
-          <ZooCell key={habitat._id} habitat={habitat} />
+          <EspaceCell key={habitat._id} habitat={habitat}/>
         ))
       )}
     </div>
